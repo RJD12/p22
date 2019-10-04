@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<h1>Categoria</h1>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    
+    {% bootstrap_form form %}
+    {% buttons %}
+    <input class="btn btn-primary" type="submit" value="Enviar" />
+    {% endbuttons %}
+</form>
+{% endblock %}

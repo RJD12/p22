@@ -1,0 +1,14 @@
+
+    {% extends 'base.html' %}
+    {% block content %}
+    {% load bootstrap4 %}
+    <a class="container padding-4 btn btn-primary" href="{% url 'tienda:factura-create' %}">Nuevo</a>
+    <ul class="list-group">
+        {% for categoria in object_list %}
+             <li class="list-group-item"><a href="{% url 'tienda:factura-detail' categoria.id %}">{{categoria.nombre}}</a></li>
+        {% empty %}
+            <li>No hay productos.</li>
+        {% endfor %}
+  
+    </ul>
+    {% endblock %} 

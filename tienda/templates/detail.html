@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<a class="container padding-4 btn btn-primary" href="{% url 'tienda:update' proyecto.id %}">Actualizar</a>
+<a class="container padding-4 btn btn-primary" href="{% url 'tienda:index' %}">Todos los proyectos</a>
+<a class="container padding-4 btn btn-primary" href="{% url 'tienda:delete' proyecto.id %}">Eliminar</a>
+<li class="list-group-item"><h1>{{ proyecto.nombre }}</h1>
+   <br> {{ proyecto.imagenes }}<br> {{ proyecto.descripcion }}<br>{{ proyecto.fecha }}<br> {{ proyecto.categoria }}<br><img src="{{proyecto.imagen.url}}" width="150" height="150"></li>
+<ul>
+
+</ul>
+{% endblock %} 
