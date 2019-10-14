@@ -2,6 +2,24 @@ from django.db import models
 
 # Create your models here.
 
+class Integrante(models.Model):
+    """Model definition for Integrante."""
+    nombre= models.CharField(max_length=50)
+    apellido= models.CharField(max_length=50)
+    corrreo= models.CharField(max_length=50)
+
+    class Meta:
+        """Meta definition for Integrante."""
+
+        verbose_name = 'Integrante'
+        verbose_name_plural = 'Integrantes'
+
+    def __str__(self):
+        return self.nombre
+
+    def get_absolute_url(self):
+        return u'/tienda/create'
+    
 
 class Categoria(models.Model):
     """Model definition for Categoria."""
@@ -31,10 +49,11 @@ class Image(models.Model):
         verbose_name_plural = 'Images'
 
     def __str__(self):
-        return str(self.imagen.url)
+        return str(self.imagen)
     
     def get_absolute_url(self):
-        return u'/tienda/%d' % self.id 
+        return u'/tienda/create'
+    
 
 
 class Proyecto(models.Model):
@@ -46,6 +65,7 @@ class Proyecto(models.Model):
     imagen= models.ImageField(upload_to="ropa",null=False)
     categoria=models.ForeignKey(Categoria,default=None,on_delete= models.PROTECT)
     imagenes=models.ManyToManyField(Image)
+    integrantes=models.ManyToManyField(Integrante)
     class Meta:
         """Meta definition for proyecto."""
 
@@ -56,4 +76,4 @@ class Proyecto(models.Model):
         return self.nombre
     
     def get_absolute_url(self):
-        return u'/tienda/facturas/%d' % self.id 
+        return u'/tienda/%d' % self.id 

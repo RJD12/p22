@@ -2,12 +2,10 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load bootstrap4 %}
-<h1>Proyecto</h1>
+<h1>Integrante</h1>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
     
     {% bootstrap_form form %}
-    <a class="btn btn-primary" href="{% url 'tienda:imagen-create' %}" target="_blank">nueva imagen</a>
-    <a class="btn btn-primary" href="{% url 'tienda:integrante-create' %}" target="_blank">nuevo/a integrante</a>
     {% buttons %}
     <input class="btn btn-primary" type="submit" value="Enviar" />
     {% endbuttons %}

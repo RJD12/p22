@@ -14,4 +14,6 @@ urlpatterns = [
     path("facturas/<int:pk>/update/", views.FacturaUpdateView.as_view(), name="factura-update"),
     path("facturas/create/", views.FacturaCreateView.as_view(), name="factura-create"),
     path("facturas/<int:pk>/delete/", views.FacturaDeleteView.as_view(), name="factura-delete"),
+    path("imagen/create/", views.ImagenCreateView.as_view(), name="imagen-create"),
+    path("integrante/create/", views.IntegranteCreateView.as_view(), name="integrante-create"),
 ]

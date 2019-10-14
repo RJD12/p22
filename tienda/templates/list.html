@@ -6,7 +6,7 @@
     <a class="container padding-4 btn btn-primary" href="{% url 'tienda:create' %}">Nuevo</a>
     <ul class="list-group">
         {% for proyecto in object_list %}
-            <li class="list-group-item"><a href="{% url 'tienda:detail' proyecto.id %}">{{proyecto.nombre}}</a> - {{ proyecto.descripcion }} - {{ proyecto.fecha }} <br><img src="{{proyecto.imagen.url}}" width="150" height="150"></li>
+            <li class="list-group-item"><a href="{% url 'tienda:detail' proyecto.id %}">{{proyecto.nombre}}</a> - {{ proyecto.fecha }} <br><img src="{{proyecto.imagen.url}}" width="150" height="150"></li>
         {% empty %}
             <li>No hay productos.</li>
         {% endfor %}

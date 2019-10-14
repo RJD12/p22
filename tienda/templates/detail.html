@@ -5,8 +5,19 @@
 <a class="container padding-4 btn btn-primary" href="{% url 'tienda:index' %}">Todos los proyectos</a>
 <a class="container padding-4 btn btn-primary" href="{% url 'tienda:delete' proyecto.id %}">Eliminar</a>
 <li class="list-group-item"><h1>{{ proyecto.nombre }}</h1>
-   <br> {{ proyecto.imagenes }}<br> {{ proyecto.descripcion }}<br>{{ proyecto.fecha }}<br> {{ proyecto.categoria }}<br><img src="{{proyecto.imagen.url}}" width="150" height="150"></li>
-<ul>
-
-</ul>
+   <br>  {{ proyecto.descripcion }}<br>{{ proyecto.fecha }}<br> {{ proyecto.categoria }}<br><img src="{{proyecto.imagen.url}}" style="max-height: 400px; max-width: 400px;">
+   <h3>Integrantes:</h3>
+   {% for integrantes in proyecto.integrantes.all %}
+   {{integrantes.nombre}} {{integrantes.apellido}}<br>
+   {% empty %}
+       <li class="list-group-item">No hay integrantes.</li>
+   {% endfor %}
+</li>
+<li class="list-group-item">
+   {% for imagenes in proyecto.imagenes.all %}
+    <img src="{{ imagenes.imagen.url }}" style="max-height: 200px; max-width: 200px;">
+   {% empty %}
+       <li class="list-group-item">No hay imagenes.</li>
+   {% endfor %}
+</li>
 {% endblock %} 

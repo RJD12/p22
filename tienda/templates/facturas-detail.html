@@ -2,7 +2,7 @@
 {% block content %}
 {% load bootstrap4 %}
 <a class="container padding-4 btn btn-primary" href="{% url 'tienda:factura-update' categoria.id %}">Actualizar</a>
-<a class="container padding-4 btn btn-primary" href="{% url 'tienda:factura-index' %}">Todos los proyectos</a>
+<a class="container padding-4 btn btn-primary" href="{% url 'tienda:factura-index' %}">Todas las categorias</a>
 <a class="container padding-4 btn btn-primary" href="{% url 'tienda:factura-delete' categoria.id %}">Eliminar</a>
 <li class="list-group-item"><h1>{{ categoria.nombre }}</h1><h1>{{categoria.id}}</h1></li>
 
